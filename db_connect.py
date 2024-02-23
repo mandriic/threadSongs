@@ -3,7 +3,7 @@ from psycopg2 import sql
 def modificate_table(command, data):
     dbname = 'songs'
     user = 'sirius'
-    password = ''
+    password = '1234'
     host = 'localhost'  
     port = '5432'
     try:
@@ -47,7 +47,6 @@ def modificate_table(command, data):
                 """.format(data['title'])
             cursor.execute(get_query, data)
             result = cursor.fetchall()
-            print(result)
         elif command == "get" and data == None:
             get_query = """
                 SELECT * FROM songstab
@@ -55,6 +54,7 @@ def modificate_table(command, data):
             cursor.execute(get_query)
             result = cursor.fetchall()
             print(result)
+            return result
         connection.commit()
     except Exception as e:
         print(f"Error: {e}")

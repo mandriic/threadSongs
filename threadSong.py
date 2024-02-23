@@ -1,11 +1,13 @@
 from fastapi import FastAPI, Request
 from db_connect import modificate_table
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
 
 @app.get("/songs/")
 def get_songs(song_data: dict = None):
     print("Getting songs")
-    modificate_table("get", song_data)
+    return(modificate_table("get", song_data))
 
 @app.post("/songs/")
 def post_songs(song_data: dict):
