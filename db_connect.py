@@ -3,7 +3,7 @@ from psycopg2 import sql
 def modificate_table(command, data):
     dbname = 'songs'
     user = 'sirius'
-    password = '1234'
+    password = '1234' # test password
     host = 'localhost'  
     port = '5432'
     try:
